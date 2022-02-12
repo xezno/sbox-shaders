@@ -4,8 +4,7 @@ Here's a collection of shaders I've made for s&box.
 
 ## Using them
 
-Select the shader you want, then copy that folder into your game's root folder. It'll include all the textures and shader
-files you need for it to work.
+Select the shader you want, then copy the vfx file(s) over to your game's `shaders` folder.
 
 ## License
 
