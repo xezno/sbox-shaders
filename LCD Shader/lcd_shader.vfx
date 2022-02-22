@@ -115,6 +115,12 @@ PS
     float g_flFresnelExponent< UiGroup( "LCD Screen/Viewing Angles" ); UiType( Slider ); Default( 5.0f ); Range( 0.0f, 10.0f ); >;
     FloatAttribute( g_flFresnelExponent, true );
 
+    //
+    // animation
+    //
+    float2 g_vAnimationScroll< UiGroup( "LCD Screen/Animation" ); UiType( Slider ); Default2( 0.0f, 0.0f ); Range2( -1.0f, -1.0f, 1.0f, 1.0f ); >;
+    Float2Attribute( g_vAnimationScroll, true );
+
     //=====================================================================================================================
 
     PixelOutput MainPs( PixelInput i )
@@ -125,6 +131,8 @@ PS
         // UVs
         //
         float2 vSnappedUvs = round( i.vTextureCoords.xy * g_vScreenResolution.xy + 0.5 ) / g_vScreenResolution.xy;
+        vSnappedUvs += g_vAnimationScroll * g_flTime;
+        
         float2 vLcdUvs = i.vTextureCoords.xy * g_vScreenResolution.xy / g_vPixelSize.xy;
 
         //
