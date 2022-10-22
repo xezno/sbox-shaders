@@ -169,7 +169,7 @@ PS
         //
         // Output
         //
-        PixelOutput o = FinalizePixelMaterial( i, m );
+        PixelOutput o;
         o.vColor = lerp( vAlbedoSample, vLcdSample, fBlendAmt );
         o.vColor *= g_flBrightnessMultiplier;
 
