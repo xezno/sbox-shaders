@@ -171,6 +171,7 @@ PS
         //
         float4 o = lerp( vAlbedoSample, vLcdSample, fBlendAmt );
         o *= g_flBrightnessMultiplier;
+        o.a = 1.0;
 
         return o;
     }

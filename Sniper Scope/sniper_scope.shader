@@ -119,7 +119,7 @@ PS
 	//
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
-		float4 o = float4( 0, 0, 0, 0 );
+		float4 o = float4( 0, 0, 0, 1 );
 
 		float2 vPositionUvWithOffset = ( ( i.vPositionSs.xy ) - g_vViewportOffset ) / g_vRenderTargetSize;
 		float fAspectRatio = g_vViewportSize.y / g_vViewportSize.x;

@@ -101,7 +101,7 @@ PS
 
     float4 MainPs( PixelInput i ) : SV_Target0
     {
-        float4 o = float4( 0, 0, 0, 0 );
+        float4 o = float4( 0, 0, 0, 1 );
         Material m = GatherMaterial( i );
         
         float3 vPositionWs = i.vPositionWithOffsetWs.xyz + g_vHighPrecisionLightingOffsetWs.xyz;
