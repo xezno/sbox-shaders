@@ -99,9 +99,9 @@ PS
         return vCalcTextureCoords + float2( 0.5, 0.5 );
     }
 
-    PixelOutput MainPs( PixelInput i )
+    float4 MainPs( PixelInput i ) : SV_Target0
     {
-        PixelOutput o;
+        float4 o = float4( 0, 0, 0, 0 );
         Material m = GatherMaterial( i );
         
         float3 vPositionWs = i.vPositionWithOffsetWs.xyz + g_vHighPrecisionLightingOffsetWs.xyz;
@@ -115,10 +115,10 @@ PS
         float2 vCalcTextureCoords = CalculateTextureCoords( i.vTextureCoords, vTangentViewVector );
         i.vTextureCoords = vCalcTextureCoords;
 
-        o.vColor.rgba = float4( g_vSightColor, 1.0 ) * 32.0;
+        o.rgba = float4( g_vSightColor, 1.0 ) * 32.0;
         
         float4 vTextureSample = Tex2DS( g_tReticleMask, TextureFiltering, vCalcTextureCoords );
-        o.vColor.a = vTextureSample.r;
+        o.a = vTextureSample.r;
         
         return o;
     }
